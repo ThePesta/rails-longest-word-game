@@ -7,8 +7,8 @@
 <form action="/score">
   <label for="input">Enter your best guess:</label>
   <input type="text" id="input" name="answer" placeholder="your guess">
-  <input type="hidden" name="time" value=<%=@start_time%>>
-  <input type="hidden" name="given" value=<%=@letters.join%>>
+  <input type="hidden" name="time" value="<%=@start_time%>">
+  <input type="hidden" name="given" value="<%=@letters.join%>">
   <input type="submit" value="Submit">
 </form>
 

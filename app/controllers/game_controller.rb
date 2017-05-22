@@ -13,12 +13,12 @@ class GameController < ApplicationController
     @start_time = DateTime.parse(params[:time])
     @end_time = DateTime.now
     @guess = params[:answer].upcase
-    @given_letters = params[:given].chars.to_a
+    @given_letters = params[:given].chars
     @given_letters_hash = hash_letters(@given_letters)
-    @guess_hash = hash_letters(@guess.chars.to_a)
+    @guess_hash = hash_letters(@guess.chars)
     if check_letters_present(@guess_hash, @given_letters_hash)
       if check_translation(@guess)
-        @time = (((@end_time - @start_time).to_f) * 24 * 60 * 60).round(2)
+        @time = (1/(((@end_time - @start_time).to_f) * 24 * 60 * 60))*10
       else
         @time = 0
         @message = "That's not a word"
