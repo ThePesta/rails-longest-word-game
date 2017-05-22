@@ -4,9 +4,15 @@ require 'json'
 class GameController < ApplicationController
 
   def game
-   @start_time = DateTime.now
-   @letters = []
-   (0...10).each { @letters << rand(65..90).chr }
+    @start_time = DateTime.now
+    @letters = []
+    (0...10).each { @letters << rand(65..90).chr }
+    if session[:count].nil?
+      session[:count] = 0
+    else
+      session[:count] += 1
+    end
+   # p session.to_hash -- used to check what is inside session
   end
 
   def score
